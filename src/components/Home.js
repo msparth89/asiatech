@@ -20,7 +20,7 @@ class Home extends React.Component {
     }
 
     componentDidMount(){
-        const wordPressSiteUrl = 'http://localhost/wordpress';
+        const wordPressSiteUrl = 'http://localhost/asiatech';
         this.setState( { loading : true }, ()=>{
             axios.get(`${wordPressSiteUrl}/wp-json/wp/v2/posts`)
             .then( res => {

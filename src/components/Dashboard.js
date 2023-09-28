@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from "./Navbar";
 import Redirect from './Redirect';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends React.Component {
 
@@ -32,6 +33,9 @@ class Dashboard extends React.Component {
 				<Navbar/>
 				<div className="jumbotron" style={{ height: '100vh' }}>
 					<h4>Welcome {userName}!!</h4>
+					<Link to="/dashboard/define-roles" className="btn btn-primary mb-3">
+            			Define Roles
+          			</Link>
 					<form onSubmit={ this.handleLogout } style = {{margin:'20px'}}>
 						<button className="btn btn-primary mb-3" type="submit">Log out</button>
 					</form>
