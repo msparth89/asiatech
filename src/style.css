@@ -11,3 +11,12 @@
     right: 0;
     margin:auto;
 }
+
+
+.ardh {
+    display: flex;
+align-items: center;
+justify-content: space-evenly;
+width: 100%;
+cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import Navbar from './Navbar'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -6,43 +6,55 @@ import parse from 'html-react-parser';
 import Moment from "react-moment";
 import "../style.css";
 import Loader from "../Loader.gif"
+import Master from "../utils/Master";
 
-class Home extends React.Component {
+function Home () {
 
-    constructor( props ){
-        super( props );
+    const { phoneNumberChange, PhoneNumber } = useContext(Master);
 
-        this.state = {
-            loading: false,
-            posts: [],
-            error: ""
-        }
-    }
 
-    componentDidMount(){
-        const wordPressSiteUrl = 'http://localhost/asiatech';
-        this.setState( { loading : true }, ()=>{
-            axios.get(`${wordPressSiteUrl}/wp-json/wp/v2/posts`)
-            .then( res => {
-                this.setState({ loading : false, posts: res.data })
-            })
-            .catch( error => this.setState( { loading : false , error : error.response.data.message}))
-        } );
-    }
+  
 
 
 
+        const [name, setName] = useState("");
+        const [title, setTitle] = useState("");
+        const [show,setshow]=useState("button");
 
-    render() {
+        const handleChange = async (event) => {
+          setName(event.target.value);
 
-        // console.log('state' , this.state)
-        // destructuring
-        const { posts,loading,error } = this.state;
+          const { electronAPI } = window;
+
+         var abc= await electronAPI.openFile();
+         setTitle(abc);
+        //   electronAPI.setTitle(event.target.value);
+
+                    // electronAPI.setTitle(abc);
+
+        };
+console.log("ppp", show);
         
         return(
             <div>
-                <Navbar/>
-                {error && <div className='alert alert-danger'>{error}</div>}
+
+<div>
+      {/* <input type="text" onChange={handleChange} value={name} /> */}
+      {/* <h1>Your title is: {title}</h1> */}
+    {(show=="ardh") &&   <div className='ardh' onClick={handleChange}>
+      <img src="./ardh.jpg" height="400px" weight="200px" ></img>
+      </div> }
+
+      {(show=="button") &&  <div className='ardh' onClick={()=>setshow("ardh")}>
+    <button id="btn" type="button" onClick={()=>setshow("ardh")}>Set</button> 
+    </div>
+     }
+    </div>
+   
+
+
+                {/* <Navbar/> */}
+                {/* {error && <div className='alert alert-danger'>{error}</div>}
                 {  posts.length ? (
                     <div className='mt-5 post-container'>
                         { posts.map ( post => (
@@ -67,11 +79,11 @@ class Home extends React.Component {
                         </div>
                         ))  }
                     </div>
-                ): '' }
-                {loading && <img className='loader' src = {Loader} alt="Loader"/>}
+                ): '' } */}
+                {/* {loading && <img className='loader' src = {Loader} alt="Loader"/>} */}
             </div>
         )
-    }
+   
 }
 
 export default Home;
