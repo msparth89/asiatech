@@ -34,11 +34,15 @@ export default function OTPCode() {
   function SettingOTP(num){
     setOtp(num);
     setOTP(num)
+    if((num+"").length==6)
+    {
+      handleClick(num);
+    }
   }
 
-  const handleClick = () => {
+  const handleClick = (num) => {
     // if (!buttonClicked) {
-      axios.post(`http://localhost/asiatech/?rest_route=/shakti/v1/authenticate&phone_number=${PhoneNumber.current}&secod=${otp}&shakti=1234`
+      axios.post(`http://localhost/asiatech/?rest_route=/simple-jwt-login/v1/auth&phone_number=${PhoneNumber.current}&secod=${num}&shakti=1234`
       )
         .then(response => {
           console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR', response);
