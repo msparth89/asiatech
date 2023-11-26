@@ -8,7 +8,7 @@ escpos.USB = require('escpos-usb');
 
 const handleFileOpen = async (props) =>  {
   const device = new escpos.USB(8137, 8214);
- console.log("oooooooooooooooooooooooooooo", escpos.USB.findPrinter());
+  console.log("oooooooooooooooooooooooooooo", escpos.USB.findPrinter());
 
 ///////////////////////////////
 const options = { encoding: "GB18030" /* default */ }
@@ -17,21 +17,21 @@ const options = { encoding: "GB18030" /* default */ }
 const printer = new escpos.Printer(device, options);
 
 const tux = path.join(__dirname, 'Aum.png');
-// escpos.Image.load(tux, function(image){
+escpos.Image.load(tux, function(image){
 
-//   device.open(function(){
-// console.log("oooooooooooooooooooooooooooooooooooooooooooooo");
-//     printer.align('ct')
-//            .image(image, 's8')
-//            .then(() => { 
-//               printer.cut().close(); 
-//            });
+  device.open(function(){
+console.log("oooooooooooooooooooooooooooooooooooooooooooooo");
+    printer.align('ct')
+           .image(image, 's8')
+           .then(() => { 
+              printer.cut().close(); 
+           });
 
-//     // OR non-async .raster(image, "mode") : printer.text("text").raster(image).cut().close();
+    // OR non-async .raster(image, "mode") : printer.text("text").raster(image).cut().close();
 
-//   });
+  });
 
-// });
+});
 
 // device.open(function(error){
 //   printer
