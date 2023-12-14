@@ -1,38 +1,38 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
-import './navbar.css';
+import './POSHeader.css';
 
 
 const MenuItems = [
 	{
-	   name: 'POS',
-	   link: '/pos',
+       name: 'creditnote',
+	   link: '/pos/creditnote',
 	   cName: 'menu_items',
 
    },
    {
-	   name: 'Reoprts',
-	   link: '/reports',
-	   cName: 'menu_items',
+
+    name: 'order',
+    link: '/pos/order',
+    cName: 'menu_items',
 
    },
 
    {
-	   name: 'Settings',
-	   link: '/settings',
+	name: 'Settings',
+	link: '/settings',
+	cName: 'menu_items',
+   },
+   {
+	   name: 'Contact',
+	   link: '#',
 	   cName: 'menu_items',
 
    },
-//    {
-// 	   name: 'Contact',
-// 	   link: '#',
-// 	   cName: 'menu_items',
-
-//    },
    
 ]
 
 
-class DashboardNavbar extends React.Component {
+class POSHeaderNavbar extends React.Component {
    constructor(props) {
 	   super(props)
 	   this.state = {
@@ -91,12 +91,12 @@ class DashboardNavbar extends React.Component {
    }
 }
 
- export default class Dashboard extends React.Component {
+ export default class POSHeader extends React.Component {
  render(){
    return(
-	 <div className="Dashboard">
-	   <DashboardNavbar />
-	  </div>
+	 <div className="POSHeader">
+	   <POSHeaderNavbar />
+	 </div>
    )
  }
 };
