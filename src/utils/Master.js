@@ -37,13 +37,26 @@ export const MasterContext = ({ children }) => {
   }
 
 
+  function setUserID(id) {
+    UserID.current = id;
+
+  }
+
+  function setRoles(roles){
+    Roles.current=roles;
+  }
+
   return (
     <Master.Provider
       value={{
         PhoneNumber,
         phoneNumberChange,
         setOTP,
-        OTP
+        OTP,
+        setUserID,
+        UserID,
+        setRoles,
+        Roles
 
 
       }}
