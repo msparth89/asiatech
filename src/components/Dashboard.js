@@ -3,24 +3,24 @@ import './navbar.css';
 
 
 const MenuItems = [
-	{
-	   name: 'POS',
-	   link: '/pos',
-	   cName: 'menu_items',
+  {
+    name: 'POS',
+    link: '/pos',
+    cName: 'menu_items',
 
-   },
-   {
-	   name: 'Reoprts',
-	   link: '/reports',
-	   cName: 'menu_items',
+  },
+  {
+    name: 'Reoprts',
+    link: '/reports',
+    cName: 'menu_items',
 
-   },
+  },
 
-   {
-	   name: 'Settings',
-	   link: '/settings',
-	   cName: 'menu_items',
-
+  {
+    name: 'Settings',
+    link: '/settings',
+    cName: 'menu_items',
+  
    },
 //    {
 // 	   name: 'Contact',
@@ -60,25 +60,25 @@ class DashboardNavbar extends React.Component {
    }
 
    render() {
-	   return (
-		   <div className="navbar">
-			   {/* <h1>BRAND</h1> */}
+  return (
+    <div className="navbar">
+      {/* <h1>BRAND</h1> */}
 
 			   <ul
 				   className={!this.state.clicked
 				   ? 'navlist'
 				   : 'navlist_active'}>
-				   {MenuItems.map((item, index) => {
+        {MenuItems.map((item, index) => {
 					   return (
-						   <li onClick={this.handleClick} key={index} className={item.cName}>
-							   <a href ={item.link}>{item.name}</a>
-						   </li>
-					   )
+          <li onClick={this.handleClick} key={index} className={item.cName}>
+            <a href ={item.link}>{item.name}</a>
+          </li>
+        )
 				   })}
-				   {/* <li className='log' onClick={this.handleLog}>{"Sign out"}
+{/* <li className='log' onClick={this.handleLog}>{"Sign out"}
 				   </li> */}
-			   </ul>
-			   {/* {< i onClick = {
+      </ul>
+{/* {< i onClick = {
 				   this.handleClick
 			   }
 			   className = {
@@ -86,18 +86,18 @@ class DashboardNavbar extends React.Component {
 					   ? 'fas fa-times'
 					   : 'fas fa-bars'
 			   } > </i>} */}
-		   </div>
-	   )
+    </div>
+  )
    }
 }
 
- export default class Dashboard extends React.Component {
+export default class Dashboard extends React.Component {
  render(){
-   return(
-	 <div className="Dashboard">
-	   <DashboardNavbar />
-	  </div>
-   )
+  return(
+    <div className="Dashboard">
+      <DashboardNavbar />
+    </div>
+  )
  }
 };
 
