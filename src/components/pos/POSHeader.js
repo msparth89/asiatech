@@ -4,16 +4,17 @@ import './POSHeader.css';
 
 const MenuItems = [
 	{
-       name: 'creditnote',
+
+		name: 'Order',
+		link: '/pos/order',
+		cName: 'menu_items',
+	
+	   },
+
+	{
+       name: 'Return',
 	   link: '/pos/creditnote',
 	   cName: 'menu_items',
-
-   },
-   {
-
-    name: 'order',
-    link: '/pos/order',
-    cName: 'menu_items',
 
    },
 
@@ -22,12 +23,14 @@ const MenuItems = [
 	link: '/settings',
 	cName: 'menu_items',
    },
-   {
-	   name: 'Contact',
-	   link: '#',
-	   cName: 'menu_items',
+//    {
+// 	   name: 'Contact',
+// 	   link: '#',
+// 	   cName: 'menu_items',
 
-   },
+//    },
+
+
    
 ]
 
@@ -94,7 +97,8 @@ class POSHeaderNavbar extends React.Component {
  export default class POSHeader extends React.Component {
  render(){
    return(
-	 <div className="POSHeader">
+	 <div className="header">
+
 	   <POSHeaderNavbar />
 	 </div>
    )

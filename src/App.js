@@ -83,7 +83,7 @@ const App = () => {
       <Route path="/pos" element={<POS />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/dashboard/define-roles" element={<DefineRoles />} />
+      <Route path="/roles" element={<DefineRoles />} />
     </Routes>
   );
 };

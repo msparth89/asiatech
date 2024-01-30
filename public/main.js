@@ -87,27 +87,45 @@ async function maashakti(){
     // 'P1'
 
 
-  "<xpml><page quantity='0' pitch='50.8 mm'></xpml>I8,A",
-'ZN',
-'q812',
-'S3',
-'O',
-'JF',
-'KIZZQ0',
-'KI9+0.0',
-'D8',
-'ZT',
-'Q406,25',
-'Arglabel 508 31',
-'exit',
-"<xpml></page></xpml><xpml><page quantity='1' pitch='50.8 mm'></xpml>N",
-'A537,341,2,2,2,2,N,"Sample Text"',
-'B531,227,2,1,3,6,102,N,"12345678"',
-'A461,115,2,2,1,1,N,"12345678"',
-'P1',
-'<xpml></page></xpml><xpml><end/></xpml>'
+//   "<xpml><page quantity='0' pitch='50.8 mm'></xpml>I8,A",
+// 'ZN',
+// 'q812',
+// 'S3',
+// 'O',
+// 'JF',
+// 'KIZZQ0',
+// 'KI9+0.0',
+// 'D8',
+// 'ZT',
+// 'Q406,25',
+// 'Arglabel 508 31',
+// 'exit',
+//"<xpml></page></xpml><xpml><page quantity='1' pitch='50.8 mm'></xpml>N",
+//'A537,341,2,2,2,2,N,"Sample Text"',
+//'B531,227,2,1,3,6,102,N,"12345678"',
+//'A461,115,2,2,1,1,N,"12345678"',
+//'P1',
+//'<xpml></page></xpml><xpml><end/></xpml>'
 
 
+// YOUR COMMANDS WORKING
+
+// 'I8,1,001',
+// 'ZN',
+// 'q886',
+// 'O',
+// 'JF',
+// 'KIZZQ0',
+// 'KI9+0.0',
+// 'ZT',
+// 'Q886,B37',
+// 'Arglabel 750 31',
+// 'exit',
+// 'KI80',
+// 'N',
+// 'b401,528,Q,m2,s9,eL,iA,"12345678"',
+// 'A559,501,2,2,1,1,N,"12345678"',
+// 'P1',
   ]
     // "<STX>L<CR>121100001000050THIS LABEL IS MADE BY JIMMY<CR>E<CR>"
 

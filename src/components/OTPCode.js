@@ -32,12 +32,8 @@ const OTPCode = () => {
   const handleVerifyOtp = () => {
     const enteredOtp = otpValues.join('');
     console.log('Verifying OTP:', enteredOtp);
-
-    // const located = localStorage.getItem('located') === 'true';
-    // const phone = localStorage.getItem('phoneNumber');
-    // const userid = localStorage.getItem('userid');
-    // axios.post(`http://localhost/asiatech/?rest_route=/simple-jwt-login/v1/auth&phone_number=${PhoneNumber.current}&secod=${enteredOtp}&shakti=${UserID.current}`)
-    axios.post(`http://localhost/asiatech/?rest_route=/simple-jwt-login/v1/auth&phone_number=${PhoneNumber.current}&secod=${enteredOtp}&shakti=${UserID.current}`)
+ 
+      axios.get(`http://localhost/asiatech/back?rest_route=/simple-jwt-login/v1/auth&phone_number=${PhoneNumber.current}&secod=${enteredOtp}&shakti=${UserID.current}`)
       .then((response) => {
         console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR', response);
         console.log('Success: ', response.data.success);

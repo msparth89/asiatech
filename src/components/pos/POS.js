@@ -44,9 +44,9 @@ const POS = () => {
 
   return (
     <div className="POS">
-        <div className="POS-header">
+        {/* <div className="POS-header"> */}
         <POSHeader/>
-        </div>
+        {/* </div> */}
         <div className="POS-body">
 
         </div>

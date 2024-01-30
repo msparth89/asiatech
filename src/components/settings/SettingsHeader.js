@@ -81,8 +81,8 @@ const  SettingsHeaderNavbar = ()=>{
 				   {MenuItems.map((item, index) => {
 					   return (
 						   <li onClick={(e)=>handleClick(e)} key={index} className={item.cName+((settingsheaderactive==item.name)?"-active":"")}>
-							   {/* <a href ={item.link}>{item.name}</a> */}
-							   {item.name}
+							   <a href ={item.link}>{item.name}</a>
+							   {/* {item.name} */}
 						   </li>
 					   )
 				   })}
@@ -105,9 +105,9 @@ const  SettingsHeaderNavbar = ()=>{
  export default class SettingsHeader extends React.Component {
  render(){
    return(
-	//  <div className="full_page">
-	   <SettingsHeaderNavbar />
-	//  </div>
+	<div className="header">
+	<SettingsHeaderNavbar />
+	  </div>
    )
  }
 };

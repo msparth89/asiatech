@@ -9,9 +9,7 @@ export default class Settings extends React.Component {
             <>
                 {/* <Dashboard/> */}
             <div className="Settings">
-                <div className="Settings-header">
                     <SettingsHeader />
-                </div>
                 <div className="Settings-body">
                 </div>
             </div>

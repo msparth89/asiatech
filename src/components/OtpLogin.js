@@ -11,16 +11,16 @@ const OtpLogin = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
   const navigate = useNavigate();
+
   const handleClick = () => {
     if (!buttonClicked) {
-      axios.get(`http://localhost/asiatech/?rest_route=/shakti/v1/register&username=${PhoneNumber.current}&shakti=1234`)
+
+      axios.get(`http://localhost/asiatech/back/?rest_route=/shakti/v1/register&username=${PhoneNumber.current}&shakti=1234&method=post`)
         .then(response => {
           console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR', response);
-          console.log("Success: ", response.data.success);
-
           if(response.data.success){
             console.log("ttttttttttttttttttttttttttttttttttttttttttttt: ", response.data.ID);
-
++
             setUserID(response.data.ID);
            phoneNumberChange (response.data.phone_number)
             navigate("/otpcode");

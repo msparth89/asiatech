@@ -28,12 +28,13 @@ ul {
   padding: 0;
   display: flex;
   list-style: none;
-  width: 400px;
+  width: 100%;
   justify-content: space-between;
   height: 5vh;
   align-items: center;
   cursor: pointer;
   position: relative;
+  margin: 0px;
 }
 
 .navlist_active {
@@ -50,7 +51,7 @@ ul {
 
 .menu_items a {
   text-decoration: none;
-  color: white;
+  color:  #333333;;
   font-size: 12pt;
   font-weight: 600;
 }
@@ -60,8 +61,16 @@ ul {
   padding: 0px 10vw;
   height: 5vh;
   align-items: stretch;
-  justify-content: center
+  justify-content: center;
+
+  border-radius: 3px;
+  box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.3);
+  color: #333333;
+  background-color: #dddddd;
+
+
 }
+  
 
 .navbar_active {
   display: flex;
@@ -189,4 +198,17 @@ h1 {
   }
 
 
+}
+
+.log:hover {
+  background: orange;
+  transition: .3s;
+}
+
+
+.menu_items a:hover {
+  text-decoration: none;
+  color:  green;
+  font-size: 12pt;
+  font-weight: 600;
 }

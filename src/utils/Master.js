@@ -17,6 +17,7 @@ export const MasterContext = ({ children }) => {
   let Name = useRef(null);
   let PortId = useRef(null);
   let OTP = useRef(null);
+  let screen = useRef(null);
 
 
   function phoneNumberChange(number) {
@@ -31,11 +32,15 @@ export const MasterContext = ({ children }) => {
     }
   }
 
+  function setscreen(scr) {
+    screen.current = scr;
+
+  }
+
   function setOTP(otp) {
     OTP.current = otp;
 
   }
-
 
   function setUserID(id) {
     UserID.current = id;
@@ -56,8 +61,9 @@ export const MasterContext = ({ children }) => {
         setUserID,
         UserID,
         setRoles,
-        Roles
-
+        Roles,
+        setscreen,
+        screen
 
       }}
     >

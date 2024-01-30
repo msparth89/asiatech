@@ -1,103 +1,134 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import './navbar.css';
+import Master from "../utils/Master";
 
 
 const MenuItems = [
-  {
-    name: 'POS',
-    link: '/pos',
-    cName: 'menu_items',
+  // {
+  //   name: 'POS',
+  //   link: '/pos',
+  //   cName: 'menu_items',
 
-  },
-  {
-    name: 'Reoprts',
-    link: '/reports',
-    cName: 'menu_items',
+  // },
+  // {
+  //   name: 'Reoprts',
+  //   link: '/reports',
+  //   cName: 'menu_items',
 
-  },
+  // },
 
-  {
-    name: 'Settings',
-    link: '/settings',
-    cName: 'menu_items',
+  // {
+  //   name: 'Settings',
+  //   link: '/settings',
+  //   cName: 'menu_items',
   
-   },
+  //  },
 //    {
 // 	   name: 'Contact',
 // 	   link: '#',
 // 	   cName: 'menu_items',
 
 //    },
+
+  {
+  name: 'Order',
+  link: '/order',
+  cName: 'menu_items',
+  access:['admin','partner','manager','biller','picker']
+  },
+{
+   name: 'Return',
+   link: '/return',
+   cName: 'menu_items',
+   access:['admin','partner','manager','biller','picker']
+ },
+ {
+  name: 'Exchange',
+  link: '/exchange',
+  cName: 'menu_items',
+  access:['admin','partner','manager','biller','picker']
+},
+{
+  name: 'Pack',
+  link: '/pack',
+  cName: 'menu_items',
+  access:['admin','partner','manager','biller','picker']
+},
+{
+  name: 'STN',
+  link: '/stn',
+  cName: 'menu_items',
+  access:['admin','partner','manager','biller','picker']
+},
+{
+  name: 'Profile',
+  link: '/profile',
+  cName: 'menu_items',
+  access:['admin','partner','manager','biller','picker']
+},
+{
+  name: 'Roles',
+  link: '/roles',
+  cName: 'menu_items',
+  access:['admin','partner','manager']
+},
+{
+  name: 'Reports',
+  link: '/reports',
+  cName: 'menu_items',
+  access:['admin','partner','manager']
+},
+{
+  name: 'Printer',
+  link: '/printer',
+  cName: 'menu_items',
+  access:['admin','partner','manager','biller','picker']
+},
    
 ]
 
 
-class DashboardNavbar extends React.Component {
-   constructor(props) {
-	   super(props)
-	   this.state = {
-		   clicked: false,
-		   login: false
-	   };
-	   this.handleClick = this
-		   .handleClick
-		   .bind(this);
-	   this.handleLog = this
-		   .handleLog
-		   .bind(this);
+function DashboardNavbar () {
+  const { setOTP, PhoneNumber, UserID, Roles, setRoles, screen,setscreen } = useContext(Master);
+
+   const [clicked,setclicked]=useState(false);
+   const [login,setlogin]=useState(true);
+
+   function handleClick(screen) {
+    setscreen(screen);
+    console.log("--------------------------------------------------------------",screen);
+      //  setclicked(!clicked);
    }
 
-   handleClick() {
-	   this.state.clicked
-		   ? this.setState({clicked: false})
-		   : this.setState({clicked: true})
+  function handleLog() {
+       setlogin(login);
    }
 
-   handleLog() {
-	   this.state.login
-		   ? this.setState({login: false})
-		   : this.setState({login: true})
-   }
-
-   render() {
   return (
     <div className="navbar">
-      {/* <h1>BRAND</h1> */}
-
 			   <ul
-				   className={!this.state.clicked
+				   className={!clicked
 				   ? 'navlist'
 				   : 'navlist_active'}>
         {MenuItems.map((item, index) => {
 					   return (
-          <li onClick={this.handleClick} key={index} className={item.cName}>
+          <li onClick={handleClick(item.name)} key={index} className={item.cName}>
             <a href ={item.link}>{item.name}</a>
           </li>
         )
 				   })}
-{/* <li className='log' onClick={this.handleLog}>{"Sign out"}
-				   </li> */}
       </ul>
-{/* {< i onClick = {
-				   this.handleClick
-			   }
-			   className = {
-				   this.state.clicked
-					   ? 'fas fa-times'
-					   : 'fas fa-bars'
-			   } > </i>} */}
+
     </div>
   )
    }
-}
+// }
 
-export default class Dashboard extends React.Component {
- render(){
+export default function Dashboard (){
+
   return(
     <div className="Dashboard">
       <DashboardNavbar />
     </div>
   )
- }
 };
-
