@@ -20,7 +20,6 @@ const OtpLogin = () => {
           console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR', response);
           if(response.data.success){
             console.log("ttttttttttttttttttttttttttttttttttttttttttttt: ", response.data.ID);
-+
             setUserID(response.data.ID);
            phoneNumberChange (response.data.phone_number)
             navigate("/otpcode");

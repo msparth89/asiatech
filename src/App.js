@@ -6,7 +6,7 @@ import Home from './components/Home';
 import SinglePost from './components/SinglePost';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
-import DefineRoles from './components/DefineRoles';
+import Role from './components/Role';
 import OtpLogin from './components/OtpLogin';
 import OTPCode from './components/OTPCode';
 import Master from "./utils/Master";
@@ -15,7 +15,7 @@ import Settings from './components/settings/Settings';
 
 const App = () => {
   const { setOTP, PhoneNumber, UserID, Roles, setRoles } = useContext(Master);
-  const idleTimeoutDuration = 5 * 1000; // 5 seconds for testing; adjust as needed
+  const idleTimeoutDuration = 500 * 1000; // 5 seconds for testing; adjust as needed
   let idleTimeout;
   const [otpCodeNavigated, setOtpCodeNavigated] = useState(false);
   const navigate = useNavigate();
@@ -74,6 +74,7 @@ const App = () => {
   }, []);
 
   return (
+    
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/post/:id" element={<SinglePost />} />
@@ -83,7 +84,7 @@ const App = () => {
       <Route path="/pos" element={<POS />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/roles" element={<DefineRoles />} />
+      <Route path="/roles" element={<Role />} />
     </Routes>
   );
 };

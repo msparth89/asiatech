@@ -18,6 +18,9 @@ export const MasterContext = ({ children }) => {
   let PortId = useRef(null);
   let OTP = useRef(null);
   let screen = useRef(null);
+  let ShippingAddress= useRef({});
+  let BillingAddress= useRef({});
+  let ShopInfo= useRef({});
 
 
   function phoneNumberChange(number) {
