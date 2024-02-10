@@ -2,5 +2,5 @@
 // const titleInput = document.getElementById('title')
 // setButton.addEventListener('click', () => {
 //   const title = titleInput.value
-//   window.electronAPI.setTitle(title)
+//   window.electronAPI.settitle(title)
 // })

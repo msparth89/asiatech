@@ -21,9 +21,9 @@ class SinglePost extends React.Component {
 
 
     componentDidMount(){
-        const wordPressSiteUrl = 'http://localhost/wordpress';
+        const wordpresssiteurl = 'http://localhost/wordpress';
         this.setState( { loading : true }, ()=>{
-            axios.get(`${wordPressSiteUrl}/wp-json/wp/v2/posts/${this.props.id}`)
+            axios.get(`${wordpresssiteurl}/wp-json/wp/v2/posts/${this.props.id}`)
             .then( res => {
                 this.setState({ loading : false, post: res.data })
             })

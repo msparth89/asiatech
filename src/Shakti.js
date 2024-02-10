@@ -9,7 +9,6 @@ const Shakti = createContext({});
 
 export const ShaktiON = ({ children }) => {
   const navigate = useNavigate();
-    var sss="helloHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
 
   return (
     <ShaktiON.Provider

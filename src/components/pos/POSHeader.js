@@ -2,7 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from 'react';
 import './POSHeader.css';
 
 
-const MenuItems = [
+const menuitems = [
 	{
 
 		name: 'Order',
@@ -42,21 +42,21 @@ class POSHeaderNavbar extends React.Component {
 		   clicked: false,
 		   login: false
 	   };
-	   this.handleClick = this
-		   .handleClick
+	   this.handleclick = this
+		   .handleclick
 		   .bind(this);
-	   this.handleLog = this
-		   .handleLog
+	   this.handlelog = this
+		   .handlelog
 		   .bind(this);
    }
 
-   handleClick() {
+   handleclick() {
 	   this.state.clicked
 		   ? this.setState({clicked: false})
 		   : this.setState({clicked: true})
    }
 
-   handleLog() {
+   handlelog() {
 	   this.state.login
 		   ? this.setState({login: false})
 		   : this.setState({login: true})
@@ -71,18 +71,18 @@ class POSHeaderNavbar extends React.Component {
 				   className={!this.state.clicked
 				   ? 'navlist'
 				   : 'navlist_active'}>
-				   {MenuItems.map((item, index) => {
+				   {menuitems.map((item, index) => {
 					   return (
-						   <li onClick={this.handleClick} key={index} className={item.cName}>
+						   <li onClick={this.handleclick} key={index} className={item.cName}>
 							   <a href ={item.link}>{item.name}</a>
 						   </li>
 					   )
 				   })}
-				   {/* <li className='log' onClick={this.handleLog}>{"Sign out"}
+				   {/* <li className='log' onClick={this.handlelog}>{"Sign out"}
 				   </li> */}
 			   </ul>
 			   {/* {< i onClick = {
-				   this.handleClick
+				   this.handleclick
 			   }
 			   className = {
 				   this.state.clicked

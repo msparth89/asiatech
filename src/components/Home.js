@@ -10,27 +10,27 @@ import Master from "../utils/Master";
 
 function Home () {
 
-    const { phoneNumberChange, PhoneNumber } = useContext(Master);
+    const { phonenumberChange, phonenumber } = useContext(Master);
 
 
   
 
 
 
-        const [name, setName] = useState("");
-        const [title, setTitle] = useState("");
+        const [name, setname] = useState("");
+        const [title, settitle] = useState("");
         const [show,setshow]=useState("button");
 
-        const handleChange = async (event) => {
-          setName(event.target.value);
+        const handlechange = async (event) => {
+          setname(event.target.value);
 
           const { electronAPI } = window;
 
          var abc= await electronAPI.openFile();
-         setTitle(abc);
-        //   electronAPI.setTitle(event.target.value);
+         settitle(abc);
+        //   electronAPI.settitle(event.target.value);
 
-                    // electronAPI.setTitle(abc);
+                    // electronAPI.settitle(abc);
 
         };
 console.log("ppp", show);
@@ -39,9 +39,9 @@ console.log("ppp", show);
             <div>
 
 <div>
-      {/* <input type="text" onChange={handleChange} value={name} /> */}
+      {/* <input type="text" onChange={handlechange} value={name} /> */}
       {/* <h1>Your title is: {title}</h1> */}
-    {(show=="ardh") &&   <div className='ardh' onClick={handleChange}>
+    {(show=="ardh") &&   <div className='ardh' onClick={handlechange}>
       <img src="./ardh.jpg" height="400px" weight="200px" ></img>
       </div> }
 

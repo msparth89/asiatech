@@ -15,15 +15,15 @@ class Login extends React.Component {
 		this.state = {
 			username: '',
 			password: '',
-			userNiceName: '',
-			userEmail: '',
-			loggedIn: false,
+			usernicename: '',
+			useremail: '',
+			loggedin: false,
 			loading: false,
 			error: ''
 		}
 	}
 
-	onFormSubmit = ( event ) => {
+	onformsubmit = ( event ) => {
 		event.preventDefault();
 
     const siteUrl = "http://localhost/wordpress";
@@ -50,9 +50,9 @@ class Login extends React.Component {
 					this.setState( {
 						loading: false,
 						token: token,
-						userNiceName: user_nicename,
-						userEmail: user_email,
-						loggedIn: true
+						usernicename: user_nicename,
+						useremail: user_email,
+						loggedin: true
 					} )
 				} )
 				.catch( err => {
@@ -62,17 +62,17 @@ class Login extends React.Component {
 		} )
 	};
 
-	handleOnChange = ( event ) => {
+	handleonchange = ( event ) => {
 		this.setState( { [event.target.name]: event.target.value } );
 	};
 
 	render() {
 
-		const { username, password, userNiceName, loggedIn, error, loading } = this.state;
+		const { username, password, usernicename, loggedin, error, loading } = this.state;
 
-		const user = ( userNiceName ) ? userNiceName : localStorage.getItem( 'userName' );
+		const user = ( usernicename ) ? usernicename : localStorage.getItem( 'userName' );
 
-		if ( loggedIn || localStorage.getItem( 'token' ) ) {
+		if ( loggedin || localStorage.getItem( 'token' ) ) {
     return ( <Redirect to={`/dashboard/${user}`} noThrow /> )
   } else {
     return (
@@ -81,7 +81,7 @@ class Login extends React.Component {
         <div className="jumbotron" style={{ height: '100vh' }}>
           <h4>Login</h4>
           {error && <div className='alert alert-danger'>{error}</div>}
-          <form onSubmit={ this.onFormSubmit } style = {{margin:'20px'}}>
+          <form onSubmit={ this.onformsubmit } style = {{margin:'20px'}}>
             <label className="form-group">
               Username:
               <input
@@ -89,7 +89,7 @@ class Login extends React.Component {
                 className="form-control"
                 name="username"
                 value={ username }
-                onChange={ this.handleOnChange }
+                onChange={ this.handleonchange }
               />
             </label>
             <br/>
@@ -100,7 +100,7 @@ class Login extends React.Component {
                 className="form-control"
                 name="password"
                 value={ password }
-                onChange={ this.handleOnChange }
+                onChange={ this.handleonchange }
               />
             </label>
             <br/>

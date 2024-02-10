@@ -9,28 +9,27 @@ const Master = createContext({});
 
 export const MasterContext = ({ children }) => {
 
-  let PhoneNumber = useRef(null);
-  let Countrycode = useRef(null);
-  let UserID = useRef(null);
-  let JWT = useRef(null);
-  let Roles = useRef(null);
-  let Name = useRef(null);
-  let PortId = useRef(null);
-  let OTP = useRef(null);
+  let phonenumber = useRef(null);
+  let countrycode = useRef(null);
+  let userid = useRef(null);
+  let jwt = useRef(null);
+  let roles = useRef(null);
+  let name = useRef(null);
+  let portid = useRef(null);
+  let otp = useRef(null);
   let screen = useRef(null);
-  let ShippingAddress= useRef({});
-  let BillingAddress= useRef({});
-  let ShopInfo= useRef({});
+  let shippingaddress= useRef({});
+  let billingaddress= useRef({});
+  let shopinfo= useRef({});
 
 
-  function phoneNumberChange(number) {
+  function phonenumberChange(number) {
     console.log("Shakti", number);
-    PhoneNumber.current = number;
-    // parsePhoneNumber(number)
+    phonenumber.current = number;
 
-    const phoneNumber = parsePhoneNumber(number)
-    if (phoneNumber) {
-      Countrycode.current = getCountryCallingCode(phoneNumber.country);
+    const phonenumber = parsePhoneNumber(number)
+    if (phonenumber) {
+      countrycode.current = getCountryCallingCode(phonenumber.country);
 
     }
   }
@@ -40,31 +39,31 @@ export const MasterContext = ({ children }) => {
 
   }
 
-  function setOTP(otp) {
-    OTP.current = otp;
+  function setotp(otp) {
+    otp.current = otp;
 
   }
 
-  function setUserID(id) {
-    UserID.current = id;
+  function setuserid(id) {
+    userid.current = id;
 
   }
 
-  function setRoles(roles){
-    Roles.current=roles;
+  function setroles(roles){
+    roles.current=roles;
   }
 
   return (
     <Master.Provider
       value={{
-        PhoneNumber,
-        phoneNumberChange,
-        setOTP,
-        OTP,
-        setUserID,
-        UserID,
-        setRoles,
-        Roles,
+        phonenumber,
+        phonenumberChange,
+        setotp,
+        otp,
+        setuserid,
+        userid,
+        setroles,
+        roles,
         setscreen,
         screen
 

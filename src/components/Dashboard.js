@@ -3,7 +3,7 @@ import './navbar.css';
 import Master from "../utils/Master";
 
 
-const MenuItems = [
+const menuitems = [
   // {
   //   name: 'POS',
   //   link: '/pos',
@@ -89,18 +89,18 @@ const MenuItems = [
 
 
 function DashboardNavbar () {
-  const { setOTP, PhoneNumber, UserID, Roles, setRoles, screen,setscreen } = useContext(Master);
+  const { setotp, phonenumber, userid, roles, setroles, screen,setscreen } = useContext(Master);
 
    const [clicked,setclicked]=useState(false);
    const [login,setlogin]=useState(true);
 
-   function handleClick(screen) {
+   function handleclick(screen) {
     setscreen(screen);
     console.log("--------------------------------------------------------------",screen);
       //  setclicked(!clicked);
    }
 
-  function handleLog() {
+  function handlelog() {
        setlogin(login);
    }
 
@@ -110,9 +110,9 @@ function DashboardNavbar () {
 				   className={!clicked
 				   ? 'navlist'
 				   : 'navlist_active'}>
-        {MenuItems.map((item, index) => {
+        {menuitems.map((item, index) => {
 					   return (
-          <li onClick={handleClick(item.name)} key={index} className={item.cName}>
+          <li onClick={handleclick(item.name)} key={index} className={item.cName}>
             <a href ={item.link}>{item.name}</a>
           </li>
         )

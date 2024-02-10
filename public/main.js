@@ -215,7 +215,7 @@ function createWindow () {
   ipcMain.on('set-title', (event, title) => {
     const webContents = event.sender
     const win = BrowserWindow.fromWebContents(webContents)
-    win.setTitle(title)
+    win.settitle(title)
   })
 
   mainWindow.loadURL('http://localhost:3000/')

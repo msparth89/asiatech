@@ -14,26 +14,22 @@ import POS from './components/pos/POS';
 import Settings from './components/settings/Settings';
 
 const App = () => {
-  const { setOTP, PhoneNumber, UserID, Roles, setRoles } = useContext(Master);
-  const idleTimeoutDuration = 500 * 1000; // 5 seconds for testing; adjust as needed
-  let idleTimeout;
-  const [otpCodeNavigated, setOtpCodeNavigated] = useState(false);
+  const { setotp, phonenumber, userid, roles, setroles } = useContext(Master);
+  const idletimeoutduration = 500 * 1000; // 5 seconds for testing; adjust as needed
+  let idletimeout;
+  const [otpcodenavigated, setotpcodenavigated] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleIdle = () => {
-    console.log('User is idle');
-    if (!otpCodeNavigated && (window.location.pathname !== '/otpcode' && window.location.pathname !== '/otplogin')) {
+  const handleidle = () => {
+    if (!otpcodenavigated && (window.location.pathname !== '/otpcode' && window.location.pathname !== '/otplogin')) {
       // localStorage.setItem('prevlocation', window.location.pathname);
       // localStorage.setItem('located', true);
       axios
-        .get(`http://localhost/asiatech/?rest_route=/shakti/v1/register&username=${PhoneNumber.current}&shakti=1234`)
+        .get(`http://localhost/asiatech/?rest_route=/shakti/v1/register&username=${phonenumber.current}&shakti=1234`)
         .then((response) => {
-          console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR', response);
-          console.log('Success: ', response.data.success);
           if (response.data.success) {
-            setOtpCodeNavigated(true);
-            console.log('ttttttttttttttttttttttttttttttttttttttttttttt: ', response.data.ID);
+            setotpcodenavigated(true);
             navigate('/otpcode', { state: { from: window.location.pathname } });
           }
         })
@@ -43,33 +39,33 @@ const App = () => {
     }
   };
 
-  const resetIdleTimer = () => {
-    if (idleTimeout) {
-      clearTimeout(idleTimeout);
+  const resetidletimer = () => {
+    if (idletimeout) {
+      clearTimeout(idletimeout);
     }
 
-    idleTimeout = setTimeout(() => {
-      handleIdle();
-    }, idleTimeoutDuration);
+    idletimeout = setTimeout(() => {
+      handleidle();
+    }, idletimeoutduration);
   };
 
-  const handleUserActivity = () => {
-    resetIdleTimer();
+  const handleuseractivity = () => {
+    resetidletimer();
   };
 
   // Attach event listeners for user activity
   useEffect(() => {
-    document.addEventListener('mousemove', handleUserActivity);
-    document.addEventListener('keydown', handleUserActivity);
+    document.addEventListener('mousemove', handleuseractivity);
+    document.addEventListener('keydown', handleuseractivity);
 
     // Initialize idle timer
-    resetIdleTimer();
+    resetidletimer();
 
     // Cleanup event listeners on component unmount
     return () => {
-      document.removeEventListener('mousemove', handleUserActivity);
-      document.removeEventListener('keydown', handleUserActivity);
-      clearTimeout(idleTimeout);
+      document.removeEventListener('mousemove', handleuseractivity);
+      document.removeEventListener('keydown', handleuseractivity);
+      clearTimeout(idletimeout);
     };
   }, []);
 

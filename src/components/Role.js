@@ -1,7 +1,7 @@
 // import React from 'react';
 // import Navbar from './Navbar';
 
-// class DefineRoles extends React.Component {
+// class Defineroles extends React.Component {
 //   constructor(props) {
 //     super(props);
 //     // Initialize state for the form fields
@@ -9,7 +9,7 @@
 //       username: '',
 //       password: '',
 //       role: '',
-//       phoneNumber: '',
+//       phonenumber: '',
 //       emailAddress: '',
 //       adminId: '', // Additional fields for Admin role
 //       adminAddress: '', // Additional fields for Admin role
@@ -76,10 +76,10 @@
 //               <label htmlFor="adminId">User ID</label>
 //               <input
 //                 type="text"
-//                 id="userId"
+//                 id="userid"
 //                 className="form-control"
-//                 value={this.state.userId}
-//                 onChange={(e) => this.setState({ userId: e.target.value })}
+//                 value={this.state.userid}
+//                 onChange={(e) => this.setState({ userid: e.target.value })}
 //                 required
 //               />
 //             </div>
@@ -232,7 +232,7 @@
 //       <div>
 //         <Navbar/>
 //         <div className="container">
-//         <h2 className="mt-5 mb-4">Define Roles</h2>
+//         <h2 className="mt-5 mb-4">Define roles</h2>
 //         <form onSubmit={this.handleSubmit}>
 //           <div className="form-group">
 //             <label htmlFor="username">Username</label>
@@ -260,13 +260,13 @@
 
 
 //           <div className="form-group">
-//             <label htmlFor="phoneNumber">Phone Number</label>
+//             <label htmlFor="phonenumber">Phone Number</label>
 //             <input
 //               type="tel"
-//               id="phoneNumber"
+//               id="phonenumber"
 //               className="form-control"
-//               value={this.state.phoneNumber}
-//               onChange={(e) => this.setState({ phoneNumber: e.target.value })}
+//               value={this.state.phonenumber}
+//               onChange={(e) => this.setState({ phonenumber: e.target.value })}
 //               required
 //             />
 //           </div>
@@ -314,7 +314,7 @@
 //   }
 // }
 
-// export default DefineRoles;
+// export default Defineroles;
 
 
 
@@ -365,9 +365,9 @@ const selectroles=[
 const options = ["Select an Option", "First Option", "Second Option", "Third Option"]
 
 const Role = () => {
-  const { phoneNumberChange, PhoneNumber,setUserID, UserID } = useContext(Master);
-  const [isHovered, setIsHovered] = useState(false);
-  const [buttonClicked, setButtonClicked] = useState(false);
+  const { phonenumberchange, phonenumber,setuserid, userid } = useContext(Master);
+  const [ishovered, setishovered] = useState(false);
+  const [buttonclicked, setbuttonclicked] = useState(false);
   const navigate = useNavigate();
 
 
@@ -382,11 +382,7 @@ const Role = () => {
     setselectedrole(value);
   }
 
-console.log("uuuu   ", selectedrole);
-
   return (
-
-     
   <div className="roles">
   <div className="roles-search-input">
   <input type="number" /> 
@@ -410,8 +406,8 @@ console.log("uuuu   ", selectedrole);
               <div className="roles-search-label">
                 Search by phone number
                </div>
-        {/* </> 
-<> */}
+        { 
+}
 
 
 
