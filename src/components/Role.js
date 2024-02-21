@@ -303,7 +303,7 @@
 
 
 //           {this.renderAdditionalFields()} {/* Render additional fields conditionally */}
-          
+
 //           <button type="submit" className="btn btn-primary">
 //             Save
 //           </button>
@@ -323,104 +323,133 @@
 
 
 import React, { useContext, useState } from "react";
-import './Role.css';
+import "./Role.css";
 import Master from "../utils/Master";
 import axios from "axios";
-// import './OtpLogin.css';
 import { useNavigate } from "react-router-dom";
-import select from 'react-select';
-import Address from './Address';
+import Select from "react-select";
+import Address from "./Address";
+import PlayerDetails from "./PlayerDetails";
 
-
-const selectroles=[
+const selectroles = [
   {
-    name: 'Partner',
-    value: 'partner',
-    access:['admin','partner','manager','biller','picker']
-    },
-  {
-     name: 'Business',
-     value: 'business',
-     access:['admin','partner','manager','biller','picker']
-   },
-   {
-    name: 'Manager',
-    value: 'manager',
-    access:['admin','partner','manager','biller','picker']
+    name: "Partner",
+    value: "partner",
+    access: ["admin", "partner", "manager", "biller", "picker"]
   },
   {
-    name: 'Biller',
-    value: 'biller',
-    access:['admin','partner','manager','biller','picker']
+    name: "Business",
+    value: "business",
+    access: ["admin", "partner", "manager", "biller", "picker"]
   },
   {
-    name: 'Picker',
-    link: 'picker',
-    access:['admin','partner','manager','biller','picker']
+    name: "Manager",
+    value: "manager",
+    access: ["admin", "partner", "manager", "biller", "picker"]
   },
-
-
-]
-
-const options = ["Select an Option", "First Option", "Second Option", "Third Option"]
+  {
+    name: "Biller",
+    value: "biller",
+    access: ["admin", "partner", "manager", "biller", "picker"]
+  },
+  {
+    name: "Picker",
+    value: "picker",
+    access: ["admin", "partner", "manager", "biller", "picker"]
+  }
+];
 
 const Role = () => {
-  const { phonenumberchange, phonenumber,setuserid, userid } = useContext(Master);
-  const [ishovered, setishovered] = useState(false);
-  const [buttonclicked, setbuttonclicked] = useState(false);
+  const [searchNumber, setSearchNumber] = useState("");
+  const [selectedRole, setSelectedRole] = useState("");
+  const [businessNumber, setBusinessNumber] = useState("");
+  const [personInfo, setPersonInfo] = useState(null);
   const navigate = useNavigate();
 
+  const handleChangeRole = (selectedOption) => {
+    setSelectedRole(selectedOption.value);
+  };
 
-  const [partnernumber,setpartnernumber]=useState({ value: 'Select an Option'})
-  const [selectedrole,setselectedrole]=useState({ value: 'Select an Option'})
-  const [businessnumber,setbusinessnumber]=useState({ value: 'Select an Option'})
-  // const [PartnerNumber,setPartnerNumber]=useState({ value: 'Select an Option'})
-
-  function changerole(value) {
-    // event.preventDefault();
-    // const { value } = e.target;
-    setselectedrole(value);
-  }
+  const handleSearch = () => {
+    // Perform API request using searchNumber and selectedRole
+    axios.get(`/api/search?number=${searchNumber}&role=${selectedRole}`)
+      .then(response => {
+        // Set personInfo state with retrieved data
+        setPersonInfo(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  };
 
   return (
-  <div className="roles">
-  <div className="roles-search-input">
-  <input type="number" /> 
-  </div>
-  <div className="roles-search-label">
-  Search by phone number
-  </div>
-  
-  <select value={selectedrole} onChange={(e) => changerole(e.target.value)} className="form-control">
-        {selectroles.map(option => {
-          return <option value={option.name} key={option.name} >{option.name}</option>
-        })}
-      </select>
-  
+    <div className="roles">
+      <div class="row form-row mt-2 m-2">
+        <div class="col-12 col-sm-2">
+          <div class="form-group">
+            <label>Search by Phone number</label>
+            <input type="number" value={searchNumber} onChange={(e) => setSearchNumber(e.target.value)} />
+            <button className="btn btn-primary btn-sm m-2" onClick={handleSearch}>Search</button>
+          </div>
+        </div>
+        <div class="col-12 col-sm-2">
+          <div class="form-group">
+            {personInfo && (
+              <div>
+                <h2>Person Information</h2>
+                <p>Name: {personInfo.name}</p>
+                <p>Mobile: {personInfo.mobile}</p>
+                <p>Aadhar No: {personInfo.aadharNo}</p>
+                <p>DOB: {personInfo.dob}</p>
+                <p>Gender: {personInfo.gender}</p>
+              </div>
+            )}
+          </div>
+        </div>
+        <div class="col-12 col-sm-2">
+          <div class="form-group">
+            <select
+              value={selectedRole}
+              onChange={(e) => setSelectedRole(e.target.value)}
+              className="form-control" style={{ cursor: "pointer" }}
+            >
+              <option value="" selected disabled>Select a Role</option>
+              {selectroles.map((option) => (
+                <option value={option.value} key={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row form-row mt-2 m-2">
+        {selectedRole === "business" && (
+          <>
+            <div className="col-12 col-sm-2">
+              <div className="form-group">
+                <label>Search by Business Phone number</label>
+                <input
+                  type="number"
+                  value={businessNumber}
+                  onChange={(e) => setBusinessNumber(e.target.value)}
+                />
+                <button className="btn btn-primary btn-sm m-2" onClick={handleSearch}>Search</button>
+              </div>
+            </div>
+            <Address />
+          </>
+        )}
 
-      {
-        (selectedrole =="Business") &&
-        
-        <>
-        <input type="number"/>
-              <div className="roles-search-label">
-                Search by phone number
-               </div>
-        { 
-}
+        {selectedRole !== "business" && selectedRole !== "" && (
+          <PlayerDetails />
+        )}
 
 
-
-
-<Address/>
-
-
-
-</>
-
-}
-  </div>
+      </div>
+    </div>
   );
-}
+};
 
 export default Role;
+
