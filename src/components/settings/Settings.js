@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import SettingsHeader from './SettingsHeader';
-import Dashboard from '../Dashboard';
+import Dashboard from '../dashboard/Dashboard';
 
 
 export default class Settings extends React.Component {

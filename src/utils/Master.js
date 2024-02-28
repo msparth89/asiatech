@@ -5,11 +5,13 @@ import { createContext, useRef, useState } from "react";
 import { parsePhoneNumber, getCountryCallingCode } from 'react-phone-number-input'
 
 
-const Master = createContext({});
+const Master = createContext({});  // function setbusinessphno(number){
+  //   businessphno.current = number;
+
+  // }
 
 export const MasterContext = ({ children }) => {
 
-  let phonenumber = useRef(null);
   let countrycode = useRef(null);
   let userid = useRef(null);
   let jwt = useRef(null);
@@ -22,17 +24,32 @@ export const MasterContext = ({ children }) => {
   let billingaddress= useRef({});
   let shopinfo= useRef({});
 
+  // let posphno=useRef(null); 
 
-  function phonenumberChange(number) {
-    console.log("Shakti", number);
-    phonenumber.current = number;
+  // let customerphno=useRef(null);
+  // let businessphno=useRef(null);
+  let [rolephno,setrolephno]=useState("");
+  let [businessphno,setbusinessphno]=useState("");
+  let [customerphno,setcustomerphno]=useState("");
+  let [posphno,setposphno]=useState("");
+  
+  let [roledata,setroledata]=useState("");
+  let [businessdata,setbusinessdata]=useState("");
+  let [customerdata,setcustomerdata]=useState("");
+  let [posdata,setposdata]=useState("");
 
-    const phonenumber = parsePhoneNumber(number)
-    if (phonenumber) {
-      countrycode.current = getCountryCallingCode(phonenumber.country);
 
-    }
-  }
+
+  // function setposphno(number){
+  //   posphno.current = number;
+
+  //   const phonenumber = parsePhoneNumber(number)
+  //   if (phonenumber) {
+  //     countrycode.current = getCountryCallingCode(phonenumber.country);
+
+  //   }
+  // }
+
 
   function setscreen(scr) {
     screen.current = scr;
@@ -56,8 +73,24 @@ export const MasterContext = ({ children }) => {
   return (
     <Master.Provider
       value={{
-        phonenumber,
-        phonenumberChange,
+        posphno,
+        setposphno,
+        customerphno,
+        setcustomerphno,
+        setrolephno,
+        rolephno,
+        businessphno,
+        setbusinessphno,
+
+        posdata,
+        setposdata,
+        customerdata,
+        setcustomerdata,
+        setroledata,
+        roledata,
+        businessdata,
+        setbusinessdata,
+
         setotp,
         otp,
         setuserid,
