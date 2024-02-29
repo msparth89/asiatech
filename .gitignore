@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /package-lock.json
+/asiatech/package-lock.json
 
 # testing
 /coverage
